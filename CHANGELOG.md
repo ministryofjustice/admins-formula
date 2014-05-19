@@ -1,4 +1,4 @@
-## Unreleased
+## Version 1.0.1
 
 * Update version of bootstrap formula we depend upon to require the version
   with sudo.sls
