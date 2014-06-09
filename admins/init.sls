@@ -9,13 +9,11 @@ include:
 
 {% if 'absent' in data and data['absent'] %}
 admin-{{ user }}:
-  user:
-    - absent
+  user.absent
 
 {% else %}
 admin-{{ user }}:
-  user:
-    - present
+  user.present:
     - name: {{ user }}
     - home: /home/{{ user }}
     - shell: /bin/bash
@@ -26,16 +24,29 @@ admin-{{ user }}:
     - require:
       - group: supervisor
       - group: wheel
-  ssh_auth:
-    - present
-    - name: {{ data['key'] }}
-    - comment: {{ data['comment'] }}
+  {% for key in data.get("public_keys", []) %}
+
+admin-{{ user}}-key-{{ loop.index0 }}:
+  ssh_auth.present:
+    - name: {{ key['key'] }}
+    - comment: {{ key['comment'] | default('') }}
     - user: {{ user }}
-    - enc: {{ data['enc'] }}
+    - enc: {{ key['enc'] | default('ssh-rsa') }}
     - config: .ssh/authorized_keys2
     - order: 1
     - require:
       - user: admin-{{ user }}
+  {% else %}
+  ssh_auth.present:
+    - name: {{ data['key'] }}
+    - comment: {{ data['comment'] | default('') }}
+    - user: {{ user }}
+    - enc: {{ data['enc'] | default('ssh-rsa') }}
+    - config: .ssh/authorized_keys2
+    - order: 1
+    - require:
+      - user: admin-{{ user }}
+  {% endfor %}
 {% endif %}
 
 {% endfor %}
