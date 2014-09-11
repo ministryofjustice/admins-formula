@@ -21,6 +21,8 @@ admin-{{ user }}:
     - groups:
       - wheel
       - supervisor
+      - adm
+      - root
     - require:
       - group: supervisor
       - group: wheel
