@@ -1,4 +1,4 @@
-## CURRENT
+## Version 1.2.0
 
 * Include 'root' and 'adm' groups for each admin, for read access to logs and configs
 
