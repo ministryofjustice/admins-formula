@@ -1,3 +1,7 @@
+## CURRENT
+
+* Include 'root' and 'adm' groups for each admin, for read access to logs and configs
+
 ## Version 1.1.0
 
 * Allow to configure more than one key for user (backward compatible)
