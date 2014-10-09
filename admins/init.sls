@@ -49,6 +49,14 @@ admin-{{ user}}-key-{{ loop.index0 }}:
     - require:
       - user: admin-{{ user }}
   {% endfor %}
+
+# 'duplicity' unfortunately will create this with the wrong owner
+# if used with sudo, so make sure it's there with the right owner.
+/home/{{ user }}/.gnupg:
+  file.directory:
+    mode: 0700
+    owner: {{ user }}
+
 {% endif %}
 
 {% endfor %}
