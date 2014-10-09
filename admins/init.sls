@@ -50,6 +50,14 @@ admin-{{ user}}-key-{{ loop.index0 }}:
       - user: admin-{{ user }}
   {% endfor %}
 
+  {% if 'use_vim_editing' in data and data['use_vim_editing'] %}
+/home/{{ user }}/.inputrc:
+  file.managed:
+    content: "set editing-mode vi\n"
+    mode: 0644
+    owner: {{ user }}
+  {% endif %}
+
 # 'duplicity' unfortunately will create this with the wrong owner
 # if used with sudo, so make sure it's there with the right owner.
 /home/{{ user }}/.gnupg:
