@@ -53,7 +53,7 @@ admin-{{ user}}-key-{{ loop.index0 }}:
   {% if 'use_vim_editing' in data and data['use_vim_editing'] %}
 /home/{{ user }}/.inputrc:
   file.managed:
-    - content: "set editing-mode vi\n"
+    - contents: 'set editing-mode vi\n'
     - mode: 0644
     - owner: {{ user }}
   {% endif %}
