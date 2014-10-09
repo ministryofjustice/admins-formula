@@ -1,3 +1,8 @@
+## Version 1.3.0
+
+* Add .gnupg directory, to fix bug in duplicity primarily
+* Optionally allow use_vim_editing to install .inputrc
+
 ## Version 1.2.0
 
 * Include 'root' and 'adm' groups for each admin, for read access to logs and configs
