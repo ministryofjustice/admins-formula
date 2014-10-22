@@ -1,3 +1,7 @@
+## CURRENT
+
+* Allow additional admin groups via admins_extra_groups grain
+
 ## Version 1.3.0
 
 * Add .gnupg directory, to fix bug in duplicity primarily
