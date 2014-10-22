@@ -1,3 +1,7 @@
+## Version 1.3.x
+
+* Fix the absent state to remove the user, not admin-jblogs
+
 ## Version 1.3.0
 
 * Add .gnupg directory, to fix bug in duplicity primarily
