@@ -1,3 +1,7 @@
+## CURRENT
+
+* Allow additional admin groups via admins_extra_groups grain
+
 ## Version 1.3.1
 
 * Fix the absent state to remove the user, not admin-jblogs

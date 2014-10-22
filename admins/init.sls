@@ -24,6 +24,9 @@ admin-{{ user }}:
       - supervisor
       - adm
       - root
+{% for group in grains.get("admins_extra_groups", []) %}
+      - {{ group }}
+{% endfor %}
     - require:
       - group: supervisor
       - group: wheel
