@@ -9,7 +9,8 @@ include:
 
 {% if 'absent' in data and data['absent'] %}
 admin-{{ user }}:
-  user.absent
+  user.absent:
+    - name: {{ user }}
 
 {% else %}
 admin-{{ user }}:
