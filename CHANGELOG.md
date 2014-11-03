@@ -1,3 +1,7 @@
+## Version 1.3.2
+
+* Allow application of additional admin groups.
+
 ## Version 1.3.1
 
 * Fix the absent state to remove the user, not admin-jblogs
