@@ -4,7 +4,7 @@ admins-formula
 Default Behaviour
 =================
 
-By default this state will create admin users as determined by uawea defined in the 'admins' pillar. 
+By default this state will create admin users as determined by admin users defined in the 'admins' pillar. 
 
 for each user defined in the ``admins`` pillar dict:
 
