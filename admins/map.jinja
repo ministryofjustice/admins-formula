@@ -1,4 +1,11 @@
+
+{% set admins = salt['pillar.get']('admins',{}) %}
+
+{% if salt['pillar.get']('alternate_admins') %}
+  {% set admins = pillar[pillar['alternate_admins']] %}
+{% endif %}
+
 {% set admins = salt['grains.filter_by']({
     'Debian': {
     },
-}, merge=salt['pillar.get']('admins',{})) %}
+}, merge=admins) %}
