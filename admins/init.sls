@@ -19,6 +19,7 @@ admin-{{ user }}:
     - home: /home/{{ user }}
     - shell: /bin/bash
     - order: 1
+  {% if data.get('admin_groups',True) %}
     - groups:
       - wheel
       - supervisor
@@ -27,6 +28,7 @@ admin-{{ user }}:
     - require:
       - group: supervisor
       - group: wheel
+  {% endif %}
   {% for key in data.get("public_keys", []) %}
 
 admin-{{ user}}-key-{{ loop.index0 }}:

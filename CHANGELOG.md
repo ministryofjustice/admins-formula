@@ -1,3 +1,7 @@
+## Version 1.x.x
+
+* Add an option to disable adding the user to the admin groups
+
 ## Version 1.3.1
 
 * Fix the absent state to remove the user, not admin-jblogs
