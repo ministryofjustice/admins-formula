@@ -31,3 +31,13 @@ example::
             comment: dekstop2.jo.local
       rogue:
         absent: True
+
+If you want the user not to get the admin roles you can add ``admin_groups``::
+
+    admins:
+      deploy-user:
+        key: your_key
+        comment: your key_name, comment
+        enc: ssh-rsa
+        admin_groups: False
+
