@@ -56,7 +56,7 @@ admin-{{ user}}-key-{{ loop.index0 }}:
   file.managed:
     - contents: 'set editing-mode vi\n'
     - mode: 0644
-    - owner: {{ user }}
+    - user: {{ user }}
   {% endif %}
 
 # 'duplicity' unfortunately will create this with the wrong owner
@@ -64,7 +64,7 @@ admin-{{ user}}-key-{{ loop.index0 }}:
 /home/{{ user }}/.gnupg:
   file.directory:
     - mode: 0700
-    - owner: {{ user }}
+    - user: {{ user }}
 
 {% endif %}
 
