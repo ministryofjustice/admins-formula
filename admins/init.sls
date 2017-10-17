@@ -27,6 +27,17 @@ admin-{{ user }}:
     - require:
       - group: supervisor
       - group: wheel
+
+admin-{{ user }}-homedirfix:
+   file.directory:
+     - name: /home/{{ user }}
+     - user: {{ user }}
+     - group: {{ user }}
+     - recurse:
+       - user
+       - group
+
+
   {% for key in data.get("public_keys", []) %}
 
 admin-{{ user}}-key-{{ loop.index0 }}:
